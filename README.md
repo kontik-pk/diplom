@@ -26,7 +26,13 @@ hard_corrupted = transforms.Compose([
           transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])]) 
 ```
 Пример выхода:
+
+
 ![hard_1](illustrations/0_hard.jpeg)
+
+![hard_2](illustrations/14_hard.jpeg)
+
+![hard_3](illustrations/2_hard.jpeg)
 
 2. "Средняя степень испорченности"
 
