@@ -115,6 +115,10 @@ light_corrupted = transforms.Compose([
 | Wide_resnet   | light_corrupted           | 0.836 |
 | Wide_resnet   | not_corrupted             | 0.859 |
 
+
+![scores](illustrations/scores.png)
+
+
 ##### Безошибочно определенные классы для каждой модели для неиспорченного датасета
 
 | Модель        | Классы                        |    
