@@ -70,6 +70,12 @@ light_corrupted = transforms.Compose([
 
 Пример выхода:
 
+![light_1](illustrations/256_light.jpeg)
+
+![light_2](illustrations/259_light.jpeg)
+
+![light_3](illustrations/278_light.jpeg)
+
 #### Используемые модели:
 
 - VGG19
