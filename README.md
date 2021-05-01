@@ -49,6 +49,12 @@ medium_corrupted = transforms.Compose([
 ```
 Пример выхода:
 
+![medium_1](illustrations/361_medium.jpeg)
+
+![medium_2](illustrations/362_medium.jpeg)
+
+![medium_3](illustrations/356_medium.jpeg)
+
 3. "Легкая степень испорченности":
 
 ```
