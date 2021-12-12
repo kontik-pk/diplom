@@ -3,9 +3,10 @@
 Данные для исследования взяты из соревнования на платформе _Kaggle_: https://www.kaggle.com/c/dog-breed-identification/overview/description. Обучение во всех экспериментах проводилось дважды: на исходном датасете соревнования, и на искусственно сокращенном - для того, чтобы сравнить ухудшение качества классификации при обучении на выборках разного размера. Обучающая выборка полного датасета содержит около 8К изображений, принадлежащих 120 классам. В среднем в каждом классе 64 изображения; самый многочисленный класс содержит 94 картинки, а самый малочисленный - 50.
 В сокращенном датасете в каждом классе в два раза меньше картинок. Тестирование осуществлялось на закрытой тестовой выборке соревнования, результат рассчитывался по метрике _Multi Class Log Loss_ путем сабмита. 
 
-**https://stats.stackexchange.com/questions/113301/multi-class-logarithmic-loss-function-per-class**
 <div align="center">
-  <img src="" />
+  <img src="https://github.com/kontik-pk/diplom/blob/main/nets/illustrations/logarithmic_loss_function.png" width="500" />
+</div></br>
+<div align="center">
 </div></br>
 
 # Сверточные нейронные сети
@@ -32,6 +33,22 @@
 Лучший результат показала модель `EfficientNet-B6` - не только качество классификации лучше, но и разница между обучением на сокращенном и полном датасетах меньше, чем у остальных 
 моделей, что говорит о том, что деградация результата с уменьшением обучающей выборки меньше.
 
+Кривые обучения сверточных нейросетей на полном датасете выглядят следующим образом:
+
+<div align="center">
+  <img src="https://github.com/kontik-pk/diplom/blob/main/nets/illustrations/loss_cnn.JPG" width="700" />
+</div></br>
+<div align="center">
+</div></br>
+
+На сокращенном датасете:
+
+<div align="center">
+  <img src="https://github.com/kontik-pk/diplom/blob/main/nets/illustrations/loss_cnn_short.JPG" width="700" />
+</div></br>
+<div align="center">
+</div></br>
+
 ## Дифференцированное обучение моделей
 
 В этом эксперименте слои нейросети обучались с разной скоростью - у самых глубоких слоев скорость обучения значительно меньше (от 100 до 1000 раз). Скорость обучения постепенно нарастает от глубоких слоев к классификатору. Результаты обучения представлены в таблице:
@@ -45,6 +62,22 @@
 
 В целом, полученное качество выше для всех моделей по сравнению с обучением всех слоев, как на полном датасете, так и на сокращенном. Разница классификации при обучении на выборках разного размера по сравнению с предыдущим
 экспериментом получилась больше только для модели `EfficientNet-B6`, но незначительно.
+
+График функции потерь для дифференцированного обучения слоев сверточных нейросетей на полном датасете:
+
+<div align="center">
+  <img src="https://github.com/kontik-pk/diplom/blob/main/nets/illustrations/loss_diff.JPG" width="700" />
+</div></br>
+<div align="center">
+</div></br>
+
+На сокращенном:
+
+<div align="center">
+  <img src="https://github.com/kontik-pk/diplom/blob/main/nets/illustrations/loss_diff_short.JPG" width="700" />
+</div></br>
+<div align="center">
+</div></br>
 
 
 ## Обучение моделей с использованием аугментаций
@@ -66,6 +99,23 @@
 | DenseNet-161    |    26M   |    0.99121      |   1.39809     | 0.4067  |
 | EfficientNet-B6 |    43M   |    0.71773      |   0.75062     | 0.0329  |
 
+Кривые обучения сверточных нейронных сетей с использованием аугментаций на полном датасете:
+
+<div align="center">
+  <img src="https://github.com/kontik-pk/diplom/blob/main/nets/illustrations/loss_aug.JPG" width="700" />
+</div></br>
+<div align="center">
+</div></br>
+
+На сокращенном:
+
+<div align="center">
+  <img src="https://github.com/kontik-pk/diplom/blob/main/nets/illustrations/loss_aug_short.JPG" width="700" />
+</div></br>
+<div align="center">
+</div></br>
+
+
 По сравнению с результатами, полученными при обучении моделей на тренировочной выборке без применения аугментаций, качество выросло для всех моделей как на полном датасете, так и на сокращенном.
 
 # Трансформеры
@@ -84,3 +134,21 @@
 
 
 Полученное качество значительно выше, чем при использовании сверточных нейронных сетей, как на полном датасете, так и на сокращенном. Разница между результатами, полученных на двух вариантах датасета, также меньше, чем при обучении _CNN_.
+
+Кривые обучения трансформеров на полном датасете:
+
+<div align="center">
+  <img src="https://github.com/kontik-pk/diplom/blob/main/nets/illustrations/loss_transformers.JPG" width="700" />
+</div></br>
+<div align="center">
+</div></br>
+
+На сокращенном:
+
+<div align="center">
+  <img src="https://github.com/kontik-pk/diplom/blob/main/nets/illustrations/loss_transformers_short.JPG" width="700" />
+</div></br>
+<div align="center">
+</div></br>
+
+
